@@ -1,38 +1,38 @@
-
-
-public class GumballMachine {
+abstract class GumballMachine {
  
 	State soldOutState;
-	State noQuarterState;
-	State hasQuarterState;
+	State noCoinState;
+	State hasCoinState;
 	State soldState;
+	State notEnoughCoinState;
  
 	State state = soldOutState;
-	int count = 0;
+	int count,total_amount,cost,type;
  
 	public GumballMachine(int numberGumballs) {
 		soldOutState = new SoldOutState(this);
-		noQuarterState = new NoQuarterState(this);
-		hasQuarterState = new HasQuarterState(this);
+		noCoinState = new NoCoinState(this);
+		hasCoinState = new HasCoinState(this);
 		soldState = new SoldState(this);
-
+		notEnoughCoinState=new NotEnoughCoinState(this);
+		this.total_amount=0;
+                this.type=type;
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
-			state = noQuarterState;
+			this.state = noCoinState;
 		} 
+		
 	}
  
-	public void insertQuarter() {
-		state.insertQuarter();
-	}
- 
-	public void ejectQuarter() {
-		state.ejectQuarter();
+	abstract void insertCoin(int coin) ;
+        
+	public void ejectCoin() {
+		this.state.ejectCoin();
 	}
  
 	public void turnCrank() {
-		state.turnCrank();
-		state.dispense();
+		this.state.turnCrank();
+		this.state.dispense();
 	}
 
 	void setState(State state) {
@@ -41,50 +41,77 @@ public class GumballMachine {
  
 	void releaseBall() {
 		System.out.println("A gumball comes rolling out the slot...");
-		if (count != 0) {
-			count = count - 1;
+		if (this.count != 0) {
+			this.count = this.count - 1;
 		}
 	}
  
 	int getCount() {
-		return count;
+		return this.count;
 	}
  
 	void refill(int count) {
 		this.count = count;
-		state = noQuarterState;
+		this.state = noCoinState;
 	}
 
-    public State getState() {
-        return state;
-    }
+        public State getState() {
+        return this.state;
+        }
 
-    public State getSoldOutState() {
+        public State getSoldOutState() {
         return soldOutState;
-    }
+        }
 
-    public State getNoQuarterState() {
-        return noQuarterState;
-    }
+        public State getNoCoinState() {
+        return noCoinState;
+        }
 
-    public State getHasQuarterState() {
-        return hasQuarterState;
-    }
-
-    public State getSoldState() {
+        public State getHasCoinState() {
+        return hasCoinState;
+        }
+   
+    
+        public State getNotEnoughCoinState() {
+        return notEnoughCoinState;
+        }
+        
+        public State getSoldState() {
         return soldState;
-    }
- 
-	public String toString() {
+        }
+
+        public int getCost() {
+        return this.cost;
+        }
+    
+        public int getTotalAmount() {
+        return this.total_amount;
+        }
+    
+    
+        public void setTotalAmount(int totalamount) {
+        
+        this.total_amount=totalamount;
+        
+        }
+        
+        public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append("\nMighty Gumball, Inc.");
 		result.append("\nJava-enabled Standing Gumball Model #2004");
-		result.append("\nInventory: " + count + " gumball");
-		if (count != 1) {
+		result.append("\nInventory: " + this.count + " gumball");
+		if (this.count != 1) {
+			result.append("s");
+		}
+		
+		result.append("\nCost of a Gumball: "+this.cost+" cents");
+		
+		result.append("\nTotal Amount in Machine: "+this.total_amount +" cent");
+		if (this.total_amount > 1) {
 			result.append("s");
 		}
 		result.append("\n");
-		result.append("Machine is " + state + "\n");
+		result.append("Machine is " + this.state + "\n");
 		return result.toString();
-	}
+	 }
 }

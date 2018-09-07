@@ -1,7 +1,8 @@
 #BlueJ class context
-comment0.target=SoldState
+comment0.target=NotEnoughCoinState
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ NotEnoughCoinState\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=gumballMachine
-comment1.target=SoldState(GumballMachine)
+comment1.target=NotEnoughCoinState(GumballMachine)
 comment2.params=coin
 comment2.target=void\ insertCoin(int)
 comment3.params=
