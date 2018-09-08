@@ -1,5 +1,4 @@
 
-
 import java.util.Random;
 
 public class HasCoinState implements State {
@@ -10,8 +9,8 @@ public class HasCoinState implements State {
 	}
   
 	public void insertCoin(int coin) {
-		gumballMachine.setTotalAmount(gumballMachine.getTotalAmount()+coin);
-		System.out.println("You inserted a coin");
+		
+		System.out.println("You can't insert another coin");
        }
 		
  
@@ -22,8 +21,17 @@ public class HasCoinState implements State {
 	}
  
 	public void turnCrank() {
-		System.out.println("You turned...");
-		gumballMachine.setState(gumballMachine.getSoldState());	
+	
+	if(gumballMachine.getTotalAmount()<gumballMachine.getCost())
+	{
+	  System.out.println("You turned...but you have not paid enough money for the gumball");
+	  gumballMachine.setState(gumballMachine.getNoCoinState());	
+	}
+	else
+        {
+	  System.out.println("You turned...");
+	  gumballMachine.setState(gumballMachine.getSoldState());
+	}
 	}
 
     public void dispense() {

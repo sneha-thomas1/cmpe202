@@ -10,10 +10,12 @@ public class GumballMachineType3 extends GumballMachine
 
     
     public void insertCoin(int coin){ 
-        if (Arrays.asList(5,10,25).contains(coin))
-		      this.state.insertCoin(coin);
+        
+                    if (Arrays.asList(5,10,25).contains(coin))
+		      state.insertCoin(coin);
                     else
 		      System.out.println("Please insert a dime,nickel or quarter.");
+         
         
     }
 }

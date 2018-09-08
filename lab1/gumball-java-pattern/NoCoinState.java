@@ -1,5 +1,4 @@
 
-
 public class NoCoinState implements State {
     GumballMachine gumballMachine;
  
@@ -11,10 +10,8 @@ public class NoCoinState implements State {
 	public void insertCoin(int coin) {
 		System.out.println("You inserted a coin");
 		gumballMachine.setTotalAmount(gumballMachine.getTotalAmount()+coin);
-		if (gumballMachine.getCost()<=gumballMachine.getTotalAmount())
-		  gumballMachine.setState(gumballMachine.getHasCoinState());
-		else
-		  gumballMachine.setState(gumballMachine.getNotEnoughCoinState());
+		gumballMachine.setState(gumballMachine.getHasCoinState());
+		
 	}
  
 	public void ejectCoin() {
@@ -33,3 +30,4 @@ public class NoCoinState implements State {
 		return "waiting for coin";
 	}
 }
+

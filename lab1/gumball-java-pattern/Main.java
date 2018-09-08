@@ -1,9 +1,9 @@
 
-
 public class Main {
-
 	public static void main(String[] args) {
 	         //type1
+
+	        
 		GumballMachine gumballMachine = new GumballMachineType1(5);
 		System.out.println(gumballMachine);
 		gumballMachine.turnCrank();

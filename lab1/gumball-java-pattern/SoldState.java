@@ -1,5 +1,5 @@
 
-
+ 
 public class SoldState implements State {
  
     GumballMachine gumballMachine;
@@ -13,8 +13,8 @@ public class SoldState implements State {
 	}
  
 	public void ejectCoin() {
-		//System.out.println("Sorry, you already turned the crank");
-		System.out.println("Please wait, you already turned the crank and we're giving you a gumball");
+		System.out.println("Sorry, you already turned the crank");
+		
 	}
  
 	public void turnCrank() {
@@ -24,14 +24,10 @@ public class SoldState implements State {
 	public void dispense() {
 		gumballMachine.releaseBall();
 		gumballMachine.setTotalAmount(gumballMachine.getTotalAmount()-gumballMachine.getCost());
-		if (gumballMachine.getCount() > 0) {
-		       if (gumballMachine.getTotalAmount()>=gumballMachine.getCost())
-		          gumballMachine.setState(gumballMachine.getHasCoinState());
-		       else if (gumballMachine.getTotalAmount()!=0)
-		          gumballMachine.setState(gumballMachine.getNotEnoughCoinState());
-		       else
+		if (gumballMachine.getCount() > 0) 
 		          gumballMachine.setState(gumballMachine.getNoCoinState());
-		} else {
+		else 
+		{
 			System.out.println("Oops, out of gumballs!");
 			gumballMachine.setState(gumballMachine.getSoldOutState());
 		}

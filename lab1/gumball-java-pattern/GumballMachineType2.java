@@ -10,9 +10,11 @@ public class GumballMachineType2 extends GumballMachine
 
     
     public void insertCoin(int coin){ 
-        if (coin==25)
-                    this.state.insertCoin(coin);
-		  else
-		    System.out.println("Please insert a quarter.Machine does not support other coins."); 
+       
+           if (coin==25)
+                    state.insertCoin(coin);
+           else
+	            System.out.println("Please insert a quarter.Machine does not support other coins."); 
+	
     }
 }

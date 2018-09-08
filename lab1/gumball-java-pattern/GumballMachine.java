@@ -1,10 +1,10 @@
-abstract class GumballMachine {
- 
+import java.util.Arrays;
+public class GumballMachine {
+
 	State soldOutState;
 	State noCoinState;
 	State hasCoinState;
 	State soldState;
-	State notEnoughCoinState;
  
 	State state = soldOutState;
 	int count,total_amount,cost,type;
@@ -14,17 +14,19 @@ abstract class GumballMachine {
 		noCoinState = new NoCoinState(this);
 		hasCoinState = new HasCoinState(this);
 		soldState = new SoldState(this);
-		notEnoughCoinState=new NotEnoughCoinState(this);
 		this.total_amount=0;
-                this.type=type;
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
 			this.state = noCoinState;
 		} 
 		
 	}
- 
-	abstract void insertCoin(int coin) ;
+        public void insertCoin(int coin){ 
+	if (Arrays.asList(5,10,25).contains(coin))
+		      state.insertCoin(coin);
+                    else
+		      System.out.println("Please insert a dime,nickel or quarter.");
+		  }
         
 	public void ejectCoin() {
 		this.state.ejectCoin();
@@ -71,11 +73,6 @@ abstract class GumballMachine {
         return hasCoinState;
         }
    
-    
-        public State getNotEnoughCoinState() {
-        return notEnoughCoinState;
-        }
-        
         public State getSoldState() {
         return soldState;
         }

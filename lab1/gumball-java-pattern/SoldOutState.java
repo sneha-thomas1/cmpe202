@@ -12,12 +12,8 @@ public class SoldOutState implements State {
 	}
  
 	public void ejectCoin() {
-	    if (gumballMachine.getTotalAmount()>0){
-	       System.out.println("Coins returned");
-	       gumballMachine.setTotalAmount(0);
-	   }
-	   else
-	       System.out.println("You can't eject, you haven't inserted a coin yet");
+	System.out.println("You can't eject, you haven't inserted a coin yet");
+
 	}
  
 	public void turnCrank() {
