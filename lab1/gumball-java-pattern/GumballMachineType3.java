@@ -14,7 +14,7 @@ public class GumballMachineType3 extends GumballMachine
                     if (Arrays.asList(5,10,25).contains(coin))
 		      state.insertCoin(coin);
                     else
-		      System.out.println("Please insert a dime,nickel or quarter.");
+		      System.out.println("Please insert a dime,nickel or quarter.Machine does not support other coins.");
          
         
     }

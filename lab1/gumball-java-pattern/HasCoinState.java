@@ -15,7 +15,7 @@ public class HasCoinState implements State {
 		
  
 	public void ejectCoin() {
-		System.out.println("Coin returned");
+		System.out.println("Returned all coins");
 		gumballMachine.setState(gumballMachine.getNoCoinState());
 		gumballMachine.setTotalAmount(0);
 	}

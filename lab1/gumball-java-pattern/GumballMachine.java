@@ -1,5 +1,5 @@
-import java.util.Arrays;
-public class GumballMachine {
+
+abstract class GumballMachine {
 
 	State soldOutState;
 	State noCoinState;
@@ -7,7 +7,7 @@ public class GumballMachine {
 	State soldState;
  
 	State state = soldOutState;
-	int count,total_amount,cost,type;
+	int count,total_amount,cost;
  
 	public GumballMachine(int numberGumballs) {
 		soldOutState = new SoldOutState(this);
@@ -21,12 +21,8 @@ public class GumballMachine {
 		} 
 		
 	}
-        public void insertCoin(int coin){ 
-	if (Arrays.asList(5,10,25).contains(coin))
-		      state.insertCoin(coin);
-                    else
-		      System.out.println("Please insert a dime,nickel or quarter.");
-		  }
+        abstract void insertCoin(int coin); 
+
         
 	public void ejectCoin() {
 		this.state.ejectCoin();
