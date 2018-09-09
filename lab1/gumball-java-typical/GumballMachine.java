@@ -12,9 +12,50 @@
     }
     abstract void insertCoin(int coin);
     
-    abstract void ejectCoin();
+    public void turnCrank()
+    {
+    	if (this.has_coin )
+    	{
+    		this.has_coin=false;
+    		if ( this.num_gumballs > 0  )
+    		{ 
+    		    if(this.total_amount>=this.cost)
+    		     {
+    			this.num_gumballs-- ;
+    			this.total_amount-=this.cost;
+    			System.out.println( "Thanks for your coin.  Gumball Ejected!" ) ;
+                     }
+                     else
+                       System.out.println( "You have not inserted enough money to buy a gumball" ) ;
+
+                }
+    		else
+    		{
+    			System.out.println( "Sorry,the gumball machine is sold out." ) ;
+    		}
+    	}
+    	else 
+    	{
+    		System.out.println( "Please insert a coin." ) ;
+    	}    
+    }
     
-    abstract void turnCrank();
+     public void ejectCoin()
+    {
+    	if ( this.has_coin)
+    	{
+    		
+    			this.has_coin = false ;
+    			this.total_amount=0;
+    			System.out.println( "Coins returned." ) ;
+    	}
+    	else
+    	{
+    			System.out.println( "You have not inserted any coins." ) ;
+    	}
+    	
+    	       
+    }
     
     public String toString() {
         StringBuffer result = new StringBuffer();

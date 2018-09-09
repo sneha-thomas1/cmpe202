@@ -5,7 +5,8 @@
 public class Main{
 
     public static void main(String[] args) {
-        GumballMachine gumballMachine = new GumballMachineType1(5);
+                //type1
+		GumballMachine gumballMachine = new GumballMachineType1(5);
 		System.out.println(gumballMachine);
 		gumballMachine.turnCrank();
 		gumballMachine.ejectCoin();
@@ -48,6 +49,9 @@ public class Main{
                 gumballMachine3.turnCrank();
                 System.out.println(gumballMachine3);
                 gumballMachine3.insertCoin( 25 );
+                
+                gumballMachine3.turnCrank();
+                gumballMachine3.insertCoin( 25 );
                 gumballMachine3.ejectCoin();
                 gumballMachine3.turnCrank();
                 System.out.println(gumballMachine3);
@@ -72,14 +76,22 @@ public class Main{
                 GumballMachine gumballMachine5 = new GumballMachineType3(1);
                 gumballMachine5.insertCoin( 25 );
                 gumballMachine5.insertCoin( 25 );
-                gumballMachine5.insertCoin( 25 );
+                gumballMachine5.insertCoin( 5 );
                 gumballMachine5.turnCrank();
+                gumballMachine5.insertCoin( 10);
+                gumballMachine5.turnCrank();
+                 gumballMachine5.insertCoin( 10);
+                 gumballMachine5.turnCrank();
+                gumballMachine5.insertCoin( 10);
                 System.out.println(gumballMachine5);
+                gumballMachine5.turnCrank();
                 gumballMachine5.insertCoin( 25 );
                 gumballMachine5.ejectCoin();
                 gumballMachine5.turnCrank();
-                gumballMachine5.ejectCoin();
                 System.out.println(gumballMachine5);
+                
+               
+
         
     }
 }
