@@ -19,7 +19,7 @@ public class CreditCardExp implements IDisplayComponent,IKeyEventHandler
 
 	public String display() {
 		if (date.equals(""))
-			return "[MM/DD] ";
+			return "[MM/DD]  ";
 		else if (wrapper!=null)
 		    return "["+wrapper.display(date)+"]  " ;
 		else
